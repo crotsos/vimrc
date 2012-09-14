@@ -74,7 +74,7 @@ set tm=500
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
    set softtabstop=3 
-   set shiftwidth=3 
+   set shiftwidth=2 
 
    au FileType Makefile set noexpandtab
 "}      							
@@ -106,8 +106,8 @@ endfunction
 autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 "Restore cursor to file position in previous editing session
-set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" set viminfo='10,\"100,:20,%,n~/.viminfo
+" au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 "--------------------------------------------------------------------------- 
 " Tip #382: Search for <cword> and replace with input() in all open buffers 
@@ -138,23 +138,23 @@ map <leader>[ :cp<CR>
 
 " --- move around splits {
 " move to and maximize the below split 
-map <C-J> <C-W>j<C-W>_
-" move to and maximize the above split 
-map <C-K> <C-W>k<C-W>_
-" move to and maximize the left split 
-nmap <c-h> <c-w>h<c-w><bar>
-" move to and maximize the right split  
-nmap <c-l> <c-w>l<c-w><bar>
-set wmw=0                     " set the min width of a window to 0 so we can maximize others 
-set wmh=0                     " set the min height of a window to 0 so we can maximize others
+" map <C-J> <C-W>j<C-W>_
+" " move to and maximize the above split 
+" map <C-K> <C-W>k<C-W>_
+" " move to and maximize the left split 
+" nmap <c-h> <c-w>h<c-w><bar>
+" " move to and maximize the right split  
+" nmap <c-l> <c-w>l<c-w><bar>
+" set wmw=0                     " set the min width of a window to 0 so we can maximize others 
+" set wmh=0                     " set the min height of a window to 0 so we can maximize others
 " }
 
 " move around tabs. conflict with the original screen top/bottom
 " comment them out if you want the original H/L
 " go to prev tab 
-map <S-H> gT
+" map <S-H> gT
 " go to next tab
-map <S-L> gt
+" map <S-L> gt
 
 " new tab
 map <C-t><C-t> :tabnew<CR>
@@ -328,3 +328,9 @@ let g:tagbar_autofocus = 1
 
 " --- SnipMate
 let g:snipMateAllowMatchingDot = 0
+
+" --- minibufexpl
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
